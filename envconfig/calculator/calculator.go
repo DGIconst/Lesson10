@@ -1,47 +1,45 @@
 package calculator
 
-import (
-	
-)
- 
+import ()
+
 type Random interface {
-    Random(limit int) int
+	Random(limit int) int
 }
- 
+
 type Calculator interface {
-    Add(x, y int) int
-    Subtract(x, y int) int
-    Multiply(x, y int) int
-    Divide(x, y int) int
-    Random() int
+	Add(x, y int) int
+	Subtract(x, y int) int
+	Multiply(x, y int) int
+	Divide(x, y int) int
+	Random() int
 }
- 
+
 func newCalculator(rnd Random) Calculator {
-    return calc{
-        rnd: rnd,
-    }
+	return calc{
+		rnd: rnd,
+	}
 }
- 
+
 type calc struct {
-    rnd Random
+	rnd Random
 }
- 
+
 func (c calc) Add(x, y int) int {
-    return x + y
+	return x + y
 }
- 
+
 func (c calc) Subtract(x, y int) int {
-    return x - y
+	return x - y
 }
- 
+
 func (c calc) Multiply(x, y int) int {
-    return x * y
+	return x * y
 }
- 
+
 func (c calc) Divide(x, y int) int {
-    return x / y
+	return x / y
 }
- 
+
 func (c calc) Random() int {
-    return c.rnd.Random(100)
+	return c.rnd.Random(100)
 }
